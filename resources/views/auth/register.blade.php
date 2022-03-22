@@ -20,8 +20,7 @@
                 <div class="card-body p-4 p-md-5">
                   <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
                   <form action="add/save" method="post">
-
-                    
+                    @csrf
                     <div class="">
                             <input type="text"  name="firstName"  placeholder="Enter first name"  style="width: 32%;"  value="{{ old('firstName') }}">
                             <span class="text-danger"> @error('firstName'){{ $message }} @enderror</span>
@@ -30,8 +29,9 @@
                             <input type="text"  style="width: 32%;"     name="lastName"          placeholder="Enter last name"              value="{{ old('lastName') }}">
                             <span class="text-danger"> @error('lastName'){{ $message }} @enderror</span>
                     </div>
+
                     <div class="">
-                            <input type="date" style="width: 20%;"      name="dateOfBirth"       placeholder="Date of Birth" value="{{ old('dateOfBirth') }}">
+                            <input type="date" style="width: 20%;"  name="dateOfBirth"  placeholder="Date of Birth" value="{{ old('dateOfBirth') }}">
                             <span class="text-danger"> @error('dateOfBirth'){{ $message }} @enderror</span>
                             <input type="number" style="width: 20%;"    name="age"               placeholder="Age" value="{{ old('age') }}">
                             <span class="text-danger"> @error('age'){{ $message }} @enderror</span>
@@ -41,7 +41,7 @@
                             type="radio"
                             name="inlineRadioOptions"
                             id="femaleGender"
-                            value="option1"
+                            value="Female"
                             checked
                           />
                           <label class="form-check-label" for="femaleGender">Female</label>
@@ -50,7 +50,7 @@
                             type="radio"
                             name="inlineRadioOptions"
                             id="maleGender"
-                            value="option2"
+                            value="Male"
                           />
                           <label class="form-check-label" for="maleGender">Male</label>
                           <input
@@ -58,50 +58,53 @@
                             type="radio"
                             name="inlineRadioOptions"
                             id="otherGender"
-                            value="option3"
+                            value="Other"
                           />
-                          <label class="form-check-label" for="otherGender">Other</label>
-                        
-      
-                      
+                          <label class="form-check-label" for="otherGender">Other</label> 
                     </div>
-      
-                    <!-- <div class="row">
-                      <div class="col-md-6 mb-4 pb-2">
-      
-                        <div class="form-outline">
-                          <input type="email" id="emailAddress" class="form-control form-control-lg" />
-                          <label class="form-label" for="emailAddress">Email</label>
-                        </div>
-      
-                      </div>
-                      <div class="col-md-6 mb-4 pb-2">
-      
-                        <div class="form-outline">
-                          <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
-                          <label class="form-label" for="phoneNumber">Phone Number</label>
-                        </div>
-      
-                      </div>
-                    </div> -->
-      
-                    <!-- <div class="row">
-                      <div class="col-12">
-      
-                        <select class="select form-control-lg">
-                          <option value="1" disabled>Choose option</option>
-                          <option value="2">Subject 1</option>
-                          <option value="3">Subject 2</option>
-                          <option value="4">Subject 3</option>
-                        </select>
-                        <label class="form-label select-label">Choose option</label>
-      
-                      </div>
-                    </div> -->
-      
-                    <!-- <div class="mt-4 pt-2">
-                      <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
-                    </div> -->
+
+                    <div class="">
+                      <input type="text"  name="email" style="width: 32%;"  placeholder="Enter your email"  value="{{ old('email') }}">
+                      <span class="text-danger"> @error('email'){{ $message }} @enderror</span>
+                      <input type="password"  name="password" style="width: 32%;" placeholder="Enter your password" value="{{ old('password') }}">
+                      <span class="text-danger"> @error('password'){{ $message }} @enderror</span>
+                      <input type="password"  name="confirmPassword"  style="width: 32%;"   placeholder="Enter your Confirm password"  value="{{ old('confirmPassword') }}">
+                      <span class="text-danger"> @error('confirmPassword'){{ $message }} @enderror</span>
+                    </div>
+
+                    <div class="">
+                      <input type="text"  name="houseUnitNo"  style="width: 32%;"  placeholder="House Unit no."  value="{{ old('houseOfNo') }}">
+                      <span class="text-danger"> @error('houseUnitNo'){{ $message }} @enderror</span>
+                      <input type="text"  name="floor"  style="width: 32%;"  placeholder="Floor" value="{{ old('floor') }}">
+                      <span class="text-danger"> @error('floor'){{ $message }} @enderror</span>
+                      <input type="text"  name="buildingName" style="width: 32%;" placeholder="Building name" value="{{ old('buildName') }}">
+                      <span class="text-danger"> @error('buildingName'){{ $message }} @enderror</span>
+                    </div>
+
+                    <div class="">
+                      <input type="text"  name="street" style="width: 32%;" placeholder="Street"  value="{{ old('street') }}">
+                      <span class="text-danger"> @error('street'){{ $message }} @enderror</span>
+                      <input type="text"  name="subdivision"  style="width: 32%;"  placeholder="Subdivision">
+                      <span class="text-danger"> @error('subdivision'){{ $message }} @enderror</span>
+                      <input type="text"  name="barangay" style="width: 32%;" placeholder="Barangay"  value="{{ old('barangay') }}">
+                      <span class="text-danger"> @error('barangay'){{ $message }} @enderror</span>
+                    </div>
+
+                    <div class="">
+                      <input type="text"  name="municipalityCity" style="width: 30%;"  placeholder="Municipality/City" value="{{ old('municipalityCity') }}">
+                      <span class="text-danger"> @error('municipalityCity'){{ $message }} @enderror</span> 
+                      <input type="text"  name="province" style="width: 30%;"  placeholder="Province"  value="{{ old('province') }}">
+                      <span class="text-danger"> @error('province'){{ $message }} @enderror</span>
+                      <input type="text"  name="country" style="width: 23%;"  placeholder="Country" value="{{ old('country') }}">
+                      <span class="text-danger"> @error('country'){{ $message }} @enderror</span>
+                      <input type="text"  name="zipCode" style="width: 13%;"  placeholder="Zip code"  value="{{ old('zipCode') }}">
+                      <span class="text-danger"> @error('zipCode'){{ $message }} @enderror</span><br>
+                    </div>
+                 
+                    <div class="mt-4 pt-2">
+                      <button class="btn btn-primary btn-lg" type="submit">ADD</button>
+                      <a href="/login">I already have an account, sign in</a>
+                    </div>
       
                   </form>
                 </div>
@@ -110,53 +113,6 @@
           </div>
         </div>
       </section>
-    
-
-<div class=" py-5 h-100">
-    <form action="add/save" method="post">
-        @csrf
-        <input type="text"      name="firstName"         placeholder="Enter first name"             value="{{ old('firstName') }}">
-        <span class="text-danger"> @error('firstName'){{ $message }} @enderror</span>
-        <input type="text"      name="middleName"        placeholder="Enter middle name"            value="{{ old('middleName') }}">
-        <span class="text-danger"> @error('middleName'){{ $message }} @enderror</span><br>
-        <input type="text"      name="lastName"          placeholder="Enter last name"              value="{{ old('lastName') }}">
-        <span class="text-danger"> @error('lastName'){{ $message }} @enderror</span><br>
-        <input type="date"      name="dateOfBirth"       placeholder="Date of Birth"                value="{{ old('dateOfBirth') }}">
-        <span class="text-danger"> @error('dateOfBirth'){{ $message }} @enderror</span><br>
-        <input type="number"    name="age"               placeholder="Age"                          value="{{ old('age') }}">
-        <span class="text-danger"> @error('age'){{ $message }} @enderror</span><br>
-        <input type="text"      name="email"             placeholder="Enter your email"             value="{{ old('email') }}">
-        <span class="text-danger"> @error('email'){{ $message }} @enderror</span><br>
-        <input type="password"  name="password"          placeholder="Enter your password"          value="{{ old('password') }}">
-        <span class="text-danger"> @error('password'){{ $message }} @enderror</span><br>
-        <input type="password"  name="confirmPassword"   placeholder="Enter your Confirm password"  value="{{ old('confirmPassword') }}">
-        <span class="text-danger"> @error('confirmPassword'){{ $message }} @enderror</span><br>
-
-        <input type="text"      name="houseUnitNo"       placeholder="House Unit no."               value="{{ old('houseOfNo') }}">
-        <span class="text-danger"> @error('houseUnitNo'){{ $message }} @enderror</span><br>
-        <input type="text"      name="floor"             placeholder="Floor"                        value="{{ old('floor') }}">
-        <span class="text-danger"> @error('floor'){{ $message }} @enderror</span><br>
-        <input type="text"      name="buildingName"         placeholder="Building name"                value="{{ old('buildName') }}">
-        <span class="text-danger"> @error('buildingName'){{ $message }} @enderror</span><br>
-        <input type="text"      name="street"            placeholder="Street"                       value="{{ old('street') }}">
-        <span class="text-danger"> @error('street'){{ $message }} @enderror</span><br>
-        <input type="text"      name="subdivision"       placeholder="Subdivision"><br>
-        <span class="text-danger"> @error('subdivision'){{ $message }} @enderror</span><br>
-        <input type="text"      name="barangay"          placeholder="Barangay"                     value="{{ old('barangay') }}">
-        <span class="text-danger"> @error('barangay'){{ $message }} @enderror</span><br> 
-        <input type="text"      name="municipalityCity"  placeholder="Municipality/City"            value="{{ old('municipalityCity') }}">
-        <span class="text-danger"> @error('municipalityCity'){{ $message }} @enderror</span><br> 
-        <input type="text"      name="province"          placeholder="Province"                     value="{{ old('province') }}">
-        <span class="text-danger"> @error('province'){{ $message }} @enderror</span><br>
-        <input type="text"      name="country"           placeholder="Country"                      value="{{ old('country') }}">
-        <span class="text-danger"> @error('country'){{ $message }} @enderror</span><br>
-        <input type="text"      name="zipCode"           placeholder="Zip code"                     value="{{ old('zipCode') }}">
-        <span class="text-danger"> @error('zipCode'){{ $message }} @enderror</span><br>
-
-        <button type="submit">ADD</button>
-        <a href="/login">I already have an account, sign in</a>
-    </form>
-  </div>
 
 </body>
 </html>
