@@ -30,6 +30,7 @@ class RegisterController extends Controller
             'lastName'          =>  'required',
             'dateOfBirth'       =>  'required|date_format:Y-m-d|before:today|nullable',
             'age'               =>  'required|numeric|min:18',
+            'gender'            =>  'required',
             'email'             =>  'required|unique:accounts',
             'password'          =>  'required|same:confirmPassword|min:5',
             'confirmPassword'   =>  'required|same:password|min:5',
@@ -50,6 +51,7 @@ class RegisterController extends Controller
         $account->lastName          =$request->lastName;
         $account->dateOfBirth       =$request->dateOfBirth;
         $account->age               =$request->age;
+        $account->gender            =$request->gender;
         $account->email             =$request->email;
         $account->password          =Hash::make($request->confirmPassword);
         $account->houseUnitNo       =$request->houseUnitNo;
@@ -118,5 +120,13 @@ class RegisterController extends Controller
     {
         $data = ['LoggedUserInfo'=>Account::where('id','=',session('LoggedUser'))->first()];
         return view('welcome',$data);
+    }
+
+    function logoutAccount()
+    {
+        if(session()->has('LoggedUser')){
+            session()->pull('LoggedUser');
+            return redirect('/login');
+        }
     }
 }

@@ -29,8 +29,8 @@
       
                       <form action="/login/account" method="get">
                         @if(Session::get('fail'))
-                            <div class="alert alert-alert">
-                                <span class="alert alert-danger">{{ Session::get('fail') }}</span>
+                            <div class="alert alert-alert form-outline mb-4">
+                                <span class="alert alert-danger form-control">{{ Session::get('fail') }}</span>
                             </div>
                         @endif
                         @csrf

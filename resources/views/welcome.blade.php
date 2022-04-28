@@ -12,6 +12,7 @@
     <div id="app">
         <nav class="navbar navbar-light bg-dark mb-3">
             <a class="navbar-brand text-light" href="#">DASHBOARD</a>
+            <a class="navbar-brand text-light" href="/logout">Logout</a>
         </nav>
         <div class="components">
             <example-component />

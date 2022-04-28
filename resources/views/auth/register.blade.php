@@ -26,7 +26,7 @@
                     
                     <span class="text-danger"> @error('dateOfBirth'){{ $message }} @enderror</span><br>
                     <span class="text-danger"> @error('age'){{ $message }} @enderror</span><br>
-                    <!-- <span class="text-danger"> @error('email'){{ $message }} @enderror</span><br> -->
+                    <span class="text-danger"> @error('email'){{ $message }} @enderror</span><br>
                     <span class="text-danger"> @error('password'){{ $message }} @enderror    </span>
                     <span class="text-danger"> @error('confirmPassword'){{ $message }} @enderror</span><br>
                     <!-- <span class="text-danger"> @error('municipalityCity'){{ $message }} @enderror</span> <br> -->
@@ -51,16 +51,15 @@
                           <input
                             class=""
                             type="radio"
-                            name="inlineRadioOptions"
+                            name="gender"
                             id="femaleGender"
                             value="Female"
-                            checked
                           />
                           <label class="form-check-label" for="femaleGender">Female</label>
                           <input
                             class=""
                             type="radio"
-                            name="inlineRadioOptions"
+                            name="gender"
                             id="maleGender"
                             value="Male"
                           />
@@ -68,9 +67,10 @@
                           <input
                             class=""
                             type="radio"
-                            name="inlineRadioOptions"
+                            name="gender"
                             id="otherGender"
                             value="Other"
+                            checked
                           />
                           <label class="form-check-label" for="otherGender">Other</label> 
                     </div>

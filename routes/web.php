@@ -4,7 +4,7 @@
 
 // use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +20,15 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/login',        [App\Http\Controllers\RegisterController::class, 'loginView']);
-Route::get('/register',     [App\Http\Controllers\RegisterController::class, 'registerView'])->name('auth.register');
-Route::post('add/save',     [App\Http\Controllers\RegisterController::class, 'addAccount']);
-Route::get('/login/account',[\App\Http\Controllers\RegisterController::class, 'loginAccount']);
-Route::get('/home',         [App\Http\Controllers\RegisterController::class, 'home']);
+Route::group(['middleware' => 'prevent-back-history'],function(){
 
+
+
+Route::get('/login',        [RegisterController::class, 'loginView'])->name('auth.login')->middleware('AlreadyLoggedIn');
+Route::get('/register',     [RegisterController::class, 'registerView'])->name('auth.register')->middleware('AlreadyLoggedIn');
+Route::post('/add/save',    [RegisterController::class, 'addAccount']);
+Route::get('/login/account',[RegisterController::class, 'loginAccount']);
+Route::get('/home',         [RegisterController::class, 'home'])->middleware('isLogged');
+Route::get('/logout',       [RegisterController::class, 'logoutAccount'])->middleware('isLogged');
+
+}); //prevent-back-history middleware

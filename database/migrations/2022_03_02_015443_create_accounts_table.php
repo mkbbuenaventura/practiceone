@@ -24,6 +24,7 @@ class CreateAccountsTable extends Migration
             $table->string('lastName');
             $table->date('dateOfBirth')->nullable();
             $table->integer('age');
+            $table->string('gender');
             $table->string('email');
             $table->string('password');
             $table->string('houseUnitNo')->nullable();
